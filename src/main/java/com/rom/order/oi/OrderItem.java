@@ -1,6 +1,14 @@
 package com.rom.order.oi;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class OrderItem {
+	@Id
+	@GeneratedValue
+	private Long orderItemId;
 	private Long productId;
 	private Double qty;
 	private String fromLocation;
@@ -12,8 +20,9 @@ public class OrderItem {
 		super();
 	}
 	
-	public OrderItem(Long prodId, Double qty, String fromLoc, String toLoc, String uom, String uomType) {
+	public OrderItem(Long orderItemId, Long prodId, Double qty, String fromLoc, String toLoc, String uom, String uomType) {
 		super();
+		this.orderItemId = orderItemId;
 		this.productId = prodId;
 		this.qty = qty;
 		this.fromLocation = fromLoc;
@@ -21,6 +30,15 @@ public class OrderItem {
 		this.uom = uom;
 		this.uomType = uomType;
 	}
+	
+	public Long getOrderItemId() {
+		return orderItemId;
+	}
+
+	public void setOrderItemId(Long orderItemId) {
+		this.orderItemId = orderItemId;
+	}
+	
 	public Long getProductId() {
 		return productId;
 	}

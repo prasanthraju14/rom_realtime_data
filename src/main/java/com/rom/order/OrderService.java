@@ -55,7 +55,7 @@ public class OrderService {
 		
 		Order order = new Order();
 		order.addOrderItem(new OrderItem
-				(Long.valueOf(1), Double.valueOf(10), "Hyderabad", "Bangalore", "kg", "KG"));
+				(Long.valueOf(1), Long.valueOf(1), Double.valueOf(10), "Hyderabad", "Bangalore", "kg", "KG"));
 
 		return createOrder(order);
 	}
