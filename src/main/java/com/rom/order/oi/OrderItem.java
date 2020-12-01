@@ -2,12 +2,15 @@ package com.rom.order.oi;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class OrderItem {
 	@Id
-	@GeneratedValue
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "ROMCOI")
+	@SequenceGenerator (name = "ROMCOI", sequenceName = "COI_SEQ", allocationSize = 1)
 	private Long orderItemId;
 	private Long productId;
 	private Double qty;
@@ -20,9 +23,8 @@ public class OrderItem {
 		super();
 	}
 	
-	public OrderItem(Long orderItemId, Long prodId, Double qty, String fromLoc, String toLoc, String uom, String uomType) {
+	public OrderItem(Long prodId, Double qty, String fromLoc, String toLoc, String uom, String uomType) {
 		super();
-		this.orderItemId = orderItemId;
 		this.productId = prodId;
 		this.qty = qty;
 		this.fromLocation = fromLoc;

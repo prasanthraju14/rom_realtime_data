@@ -15,48 +15,46 @@ import com.rom.order.oi.OrderItem;
 @Service
 public class OrderService {
 	final Logger log = LogManager.getLogger(OrderService.class);
-	
+
 	@Autowired(required = true)
 	private OrderRepository orderRepository;
 
-	public Iterable<Order> getOrders() {
-		log.debug("OrderService.getOrders() Fetching List of Order");
+	public Iterable<CustomerOrder> getOrders() {
+		log.debug("OrderService.getOrders() Fetching List of CustomerOrder");
 		return orderRepository.findAll();
 	}
-	public Order getOrderById(Long id) {
-		log.debug("OrderService.getOrderById() Fetching Order Details of " + id);
-		
-		try {
-		Optional<Order> order = orderRepository.findById(id);
-		if (!order.isPresent()) {
-			throw new OrderNotFoundException("id = " + id);
-		}
-		return order.get();
-		}
-		catch(Exception e) {
-			log.error(e.toString());
-			return null;
-		}
+
+	public CustomerOrder getOrderById(Long id) {
+		log.debug("OrderService.getOrderById() Fetching CustomerOrder Details of " + id);
+
+			Optional<CustomerOrder> order = orderRepository.findById(id);
+			if (!order.isPresent()) {
+				throw new OrderNotFoundException("id = " + id);
+			}
+			return order.get();
 	}
-	
-	public ResponseEntity<Object> createOrder(Order order) {
-		log.debug("OrderService.createOrder() Creating new order, order id = "+order.getId());
 
-		Order savedOrder = orderRepository.save(order);
+	public ResponseEntity<Object> createOrder(CustomerOrder order) {
+		log.debug("OrderService.createOrder() Creating new order, order id = " + order.getId());
 
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(savedOrder.getId()).toUri();
-		
+		CustomerOrder savedOrder = orderRepository.save(order);
+
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedOrder.getId())
+				.toUri();
+
 		return ResponseEntity.created(location).build();
 	}
-	
+
 	public ResponseEntity<Object> createSampleData() {
 		log.debug("OrderService.createSampleData() Creating Sample Data.");
-		
-		Order order = new Order();
-		order.addOrderItem(new OrderItem
-				(Long.valueOf(1), Long.valueOf(1), Double.valueOf(10), "Hyderabad", "Bangalore", "kg", "KG"));
 
+		CustomerOrder order = new CustomerOrder();
+		order.addOrderItem(
+				new OrderItem(Long.valueOf(10001), Double.valueOf(10), "Hyderabad", "Bangalore", "kg", "KG"));
+		order.addOrderItem(
+				new OrderItem(Long.valueOf(10002), Double.valueOf(12345787), "Delhi", "Agara", "Piece", "No"));
+		order.addOrderItem(
+				new OrderItem(Long.valueOf(10005), Double.valueOf(9876876), "Mangalore", "Vijayawada", "Dozen", "DZ"));
 		return createOrder(order);
 	}
 }

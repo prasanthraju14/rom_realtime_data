@@ -4,20 +4,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
-import javax.persistence.Table;
+import javax.persistence.SequenceGenerator;
 
 import com.rom.order.oi.OrderItem;
 
 @Entity
-@Table(name="Orders")
-public class Order {
+public class CustomerOrder {
 	@Id
-	@GeneratedValue
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "ROMCO")
+	@SequenceGenerator (name = "ROMCO", sequenceName = "CO_SEQ", allocationSize = 1)
 	private Long id;
 	private Date createdAt;
 
@@ -26,18 +30,20 @@ public class Order {
 	    this.createdAt = new Date();
 	  }
 	
-	@OneToMany(targetEntity=OrderItem.class)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn (name = "id")
 	private List<OrderItem> orderItemList = new ArrayList<>();
 	
-	public Order() {
+	public CustomerOrder() {
 		super();
 		this.createdAt();
 	}
 	
-	public Order(Long id, List<OrderItem> orderItemList) {
+	public CustomerOrder(Long id, List<OrderItem> orderItemList) {
 		super();
 		this.id = id;
 		this.orderItemList = orderItemList;
+		this.createdAt();
 	}
 	
 	public Long getId() {
