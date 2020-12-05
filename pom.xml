@@ -12,6 +12,7 @@
 	<groupId>com.rom</groupId>
 	<artifactId>order_mgmt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>order_mgmt</name>
 	<description>Spring Boot API for Order Management System</description>
 
