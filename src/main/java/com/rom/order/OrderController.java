@@ -13,13 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("rom")
+//@RequestMapping("rom")
 @CrossOrigin(origins = "*")
 public class OrderController {
 	private Logger log = LogManager.getLogger(OrderController.class);
 
 	@Autowired(required = true)
 	private OrderService orderService;
+	
+    @RequestMapping("/")
+    String home() {
+        return "Hello, this is ROM RESTful services - From Order Controller!!";
+    }
 
 	@GetMapping("/orders/{id}")
 	public CustomerOrder getOrder(@PathVariable Long id) {
