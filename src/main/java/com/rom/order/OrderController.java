@@ -1,5 +1,7 @@
 package com.rom.order;
 
+import java.time.LocalDate;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,7 @@ public class OrderController {
 	
     @RequestMapping("/")
     String home() {
-        return "Hello, this is ROM RESTful services - From Order Controller!! - 8:35 pm 21 Feb 2021 (Sunday) IST";
+        return "Hello, this is ROM RESTful services - From Order Controller!! - 8:35 pm 21 Feb 2021 (Sunday) IST. Time now :: "+LocalDate.now();
     }
 
 	@GetMapping("/orders/{id}")
