@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("rom")
+@RequestMapping("rom")
 @CrossOrigin(origins = "*")
 public class OrderController {
 	private Logger log = LogManager.getLogger(OrderController.class);
