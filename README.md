@@ -1,6 +1,5 @@
 # rom_realtime_data 
 
-(Work in progress)
 ==================
 
 Swagger Details:
