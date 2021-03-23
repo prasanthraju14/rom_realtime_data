@@ -1,6 +1,7 @@
 package com.rom.order;
 
 import java.net.URI;
+import java.util.Arrays;
 import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
@@ -26,7 +27,17 @@ public class OrderService {
 	
 	public Iterable<CustomerOrder> search(String searchString) {
 		log.debug("OrderService.search() Fetching List of CustomerOrder for search string = "+searchString);
-		return orderRepository.findAll();
+		String searchS = searchString==null ? "*" : searchString.trim();
+		
+		if (searchS.equals("*")) {
+			return getOrders();
+		} else {
+			Long id = Long.parseLong(searchS);
+
+			CustomerOrder order = getOrderById(id);
+			CustomerOrder colist[] = {order};
+			return Arrays.asList(colist);
+		}
 	}
 
 	public CustomerOrder getOrderById(Long id) {
