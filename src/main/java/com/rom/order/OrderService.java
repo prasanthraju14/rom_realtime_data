@@ -27,15 +27,23 @@ public class OrderService {
 	
 	public Iterable<CustomerOrder> search(String searchString) {
 		log.debug("OrderService.search() Fetching List of CustomerOrder for search string = "+searchString);
-		String searchS = searchString==null ? "*" : searchString.trim();
 		
-		if (searchS.equals("*")) {
-			return getOrders();
-		} else {
-			Long id = Long.parseLong(searchS);
-
-			CustomerOrder order = getOrderById(id);
-			CustomerOrder colist[] = {order};
+		try {
+			String searchS = searchString==null ? "*" : searchString.trim();
+			
+			if (searchS.equals("*")) {
+				return getOrders();
+			} else {
+				Long id = Long.parseLong(searchS);
+	
+				CustomerOrder order = getOrderById(id);
+				CustomerOrder colist[] = {order};
+				return Arrays.asList(colist);
+			}
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+			CustomerOrder colist[] = {};
 			return Arrays.asList(colist);
 		}
 	}
