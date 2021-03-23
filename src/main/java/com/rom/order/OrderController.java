@@ -34,9 +34,15 @@ public class OrderController {
 		return orderService.getOrderById(id);
 	}
 	
+	@GetMapping("/search/{searchString}")
+	public Iterable<CustomerOrder> search(@PathVariable String searchString) {
+		log.debug("OrderController.search() Fetching CustomerOrder Details for a given search string : " + searchString);
+		return orderService.search(searchString);
+	}
+	
 	@GetMapping("/orders")
 	public Iterable<CustomerOrder> getOrders() {
-		log.debug("OrderController.getOrder() Fetching list of orders");
+		log.debug("OrderController.getOrders() Fetching list of orders");
 		return orderService.getOrders();
 	}
 	

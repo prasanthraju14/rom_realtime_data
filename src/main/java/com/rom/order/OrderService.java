@@ -23,6 +23,11 @@ public class OrderService {
 		log.debug("OrderService.getOrders() Fetching List of CustomerOrder");
 		return orderRepository.findAll();
 	}
+	
+	public Iterable<CustomerOrder> search(String searchString) {
+		log.debug("OrderService.search() Fetching List of CustomerOrder for search string = "+searchString);
+		return orderRepository.findAll();
+	}
 
 	public CustomerOrder getOrderById(Long id) {
 		log.debug("OrderService.getOrderById() Fetching CustomerOrder Details of " + id);
