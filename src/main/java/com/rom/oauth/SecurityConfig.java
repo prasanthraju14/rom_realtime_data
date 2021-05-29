@@ -1,4 +1,4 @@
-/*package com.rom.oauth;
+package com.rom.oauth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -24,5 +24,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .jwt();
     }
 }
-
-*/
