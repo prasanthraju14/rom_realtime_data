@@ -1,3 +1,5 @@
+/*
+
 package com.rom.oauth;
 
 import javax.persistence.Entity;
@@ -19,6 +21,6 @@ public class User {
     public void setProvider(Provider provider) {
         this.provider = provider;
     }
-     
-
 }
+
+*/
