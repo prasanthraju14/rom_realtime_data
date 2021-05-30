@@ -35,8 +35,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter
             "/h2-console",
             "/rom/user/",
             "/rom/orders",
-            "/rom/**",
-            "/rom/simulate/**",
+            "/rom/search/**",
+            "/rom/createSampleData",
+            //"/rom/**",
+            //"/rom/simulate/**",
             "/webjars/**"
     };
     

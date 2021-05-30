@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rom.order.CustomerOrder;
-
 @RestController
 @RequestMapping("rom")
 @CrossOrigin(origins = "*")
@@ -26,7 +24,7 @@ public class UserController
     }
 
     @PostMapping("/signup")
-    public void signUp(@RequestBody User user)
+    public void signUp(@RequestBody MyUser user)
     {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -34,8 +32,13 @@ public class UserController
     
     
 	@GetMapping("/user/{name}")
-	public User getUser(@PathVariable String name) {
+	public MyUser getUser(@PathVariable String name) {
 		return userRepository.findByUsername(name);
+	}
+	
+	@GetMapping("/users")
+	public Iterable<MyUser> gerUsers() {
+		return userRepository.findAll();
 	}
 }
 

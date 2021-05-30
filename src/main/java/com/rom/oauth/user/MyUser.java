@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class User implements Serializable {
+public class MyUser implements Serializable {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -15,11 +15,11 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
     
-    public User() {
+    public MyUser() {
     	super();
     }
     
-    public User(long id, String username, String password) {
+    public MyUser(long id, String username, String password) {
     	super();
     	this.id = id;
     	this.username = username;
