@@ -1,3 +1,4 @@
+/*
 package com.rom.oauth;
 
 import java.util.Collection;
@@ -33,3 +34,5 @@ public class CustomOAuth2User implements OAuth2User {
         return oauth2User.<String>getAttribute("email");     
     }
 }
+
+*/

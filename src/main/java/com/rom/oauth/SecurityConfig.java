@@ -1,4 +1,5 @@
 
+/*
 package com.rom.oauth;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  
 }
 
-/*
+
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
