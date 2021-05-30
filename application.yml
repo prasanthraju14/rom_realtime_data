@@ -11,7 +11,7 @@
 #        jwt:
 #          issuer-uri: http://localhost:8083/auth/realms/baeldung
 #          jwk-set-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/certs
-
+  
 spring:
   security:
     oauth2:
