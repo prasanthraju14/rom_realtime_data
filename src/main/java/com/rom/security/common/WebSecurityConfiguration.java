@@ -1,5 +1,5 @@
 
-package com.rom.security;
+package com.rom.security.common;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
