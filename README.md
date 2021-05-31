@@ -5,7 +5,7 @@
 
 Swagger Details:
 ===============
-http://localhost:8080/swagger-ui.html#
+http://infusers.in:8080/swagger-ui.html#/
 
 createOrder sample JSON:   
 =======================
