@@ -11,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.rom.order.oi.OrderItem;
-
 @Service
 public class OrderService {
 	final Logger log = LogManager.getLogger(OrderService.class);

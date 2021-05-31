@@ -15,8 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.SequenceGenerator;
 
-import com.rom.order.oi.OrderItem;
-
 @Entity
 public class CustomerOrder {
 	@Id

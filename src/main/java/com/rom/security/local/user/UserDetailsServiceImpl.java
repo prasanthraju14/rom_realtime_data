@@ -1,9 +1,12 @@
-package com.rom.oauth.user;
+package com.rom.security.local.user;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+
+import com.rom.security.common.APIUser;
+
 import java.util.Collections;
 
 @Component
@@ -19,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
-        MyUser user = userRepository.findByUsername(username);
+        APIUser user = userRepository.findByUsername(username);
         if(user == null)
         {
             throw new UsernameNotFoundException(username);

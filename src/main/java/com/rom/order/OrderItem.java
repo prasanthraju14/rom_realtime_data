@@ -1,4 +1,4 @@
-package com.rom.order.oi;
+package com.rom.order;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

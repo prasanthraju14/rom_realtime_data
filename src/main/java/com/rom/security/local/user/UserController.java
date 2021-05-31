@@ -1,4 +1,4 @@
-package com.rom.oauth.user;
+package com.rom.security.local.user;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.rom.security.common.APIUser;
 
 @RestController
 @RequestMapping("rom")
@@ -24,7 +26,7 @@ public class UserController
     }
 
     @PostMapping("/signup")
-    public void signUp(@RequestBody MyUser user)
+    public void signUp(@RequestBody APIUser user)
     {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -32,12 +34,12 @@ public class UserController
     
     
 	@GetMapping("/user/{name}")
-	public MyUser getUser(@PathVariable String name) {
+	public APIUser getUser(@PathVariable String name) {
 		return userRepository.findByUsername(name);
 	}
 	
 	@GetMapping("/users")
-	public Iterable<MyUser> gerUsers() {
+	public Iterable<APIUser> gerUsers() {
 		return userRepository.findAll();
 	}
 }

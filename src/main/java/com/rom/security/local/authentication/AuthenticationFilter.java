@@ -1,4 +1,4 @@
-package com.rom.oauth.authentication;
+package com.rom.security.local.authentication;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter
     {
         try
         {
-        	com.rom.oauth.user.MyUser creds = new ObjectMapper().readValue(request.getInputStream(), com.rom.oauth.user.MyUser.class);
+        	com.rom.security.common.APIUser creds = new ObjectMapper().readValue(request.getInputStream(), com.rom.security.common.APIUser.class);
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(creds.getUsername(), creds.getPassword(),new ArrayList<>()));
         }
         catch(IOException e)

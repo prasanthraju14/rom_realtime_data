@@ -1,4 +1,4 @@
-package com.rom.oauth.authorization;
+package com.rom.security.local.authorization;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rom.order.CustomerOrder;
-import com.rom.order.oi.OrderItem;
+import com.rom.order.OrderItem;
 
 @Service
 public class ROMSimulatorService {

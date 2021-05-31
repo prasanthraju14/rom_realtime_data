@@ -1,5 +1,5 @@
 
-package com.rom.oauth;
+package com.rom.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +15,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.rom.oauth.authentication.AuthenticationFilter;
-import com.rom.oauth.authorization.AuthorizationFilter;
+import com.rom.security.local.authentication.AuthenticationFilter;
+import com.rom.security.local.authorization.AuthorizationFilter;
 
 @Configuration
 @EnableWebSecurity
