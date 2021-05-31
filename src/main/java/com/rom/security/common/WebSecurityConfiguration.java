@@ -37,6 +37,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter
             "/rom/orders",
             "/rom/search/**",
             "/rom/createSampleData",
+            "/rom/createOrder",
             //"/rom/**",
             //"/rom/simulate/**",
             "/webjars/**"
