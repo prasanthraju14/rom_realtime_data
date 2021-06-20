@@ -34,6 +34,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter
             "/swagger-ui.html",
             "/h2-console",
             "/rom/user/",
+            "/rom/romLogin/",
             "/rom/orders",
             "/rom/search/**",
             "/rom/createSampleData",
